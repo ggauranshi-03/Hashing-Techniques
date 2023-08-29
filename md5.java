@@ -1,13 +1,17 @@
 public class md5 {
 
     public static void main(String[] args) {
-        String input = "anant";
+        String input = "abcdefghij";
+        long startTime = System.nanoTime();
         // Convert input string to bytes and calculate MD5 hash
         byte[] hash = MD5(input.getBytes());
+
+        long endTime = System.nanoTime();
         // Convert hash bytes to hexadecimal representation
         String hashHex = bytesToHex(hash);
         // Print the MD5 hash
         System.out.println("MD5 Hash: " + hashHex);
+        System.out.println("Execution Time: " + (endTime - startTime) + " nanoseconds");
     }
 
     public static byte[] MD5(byte[] message) {

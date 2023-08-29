@@ -20,7 +20,7 @@ public class md5updated {
     };
 
     public static void main(String[] args) {
-        String input = "anant";
+        String input = "abcdefghij";
 
         long startTime = System.nanoTime();
         // Convert input string to bytes and calculate MD5 hash
@@ -165,19 +165,19 @@ public class md5updated {
     // return b + Integer.rotateLeft((a + (b & c | ~b & d) + x + t), s);
     // }
     private static int FF(int a, int b, int c, int d, int x, int s, int t) {
-        return b + Integer.rotateLeft((a + (b & c | ~b & d) + x + t + ROUND_CONSTANTS[s / 16]), s);
+        return b + Integer.rotateLeft((a + (b & c | ~b & d) + x + ROUND_CONSTANTS[s / 16]), s);
     }
 
     private static int GG(int a, int b, int c, int d, int x, int s, int t) {
-        return b + Integer.rotateLeft((a + (b & d | c & ~d) + x + t + ROUND_CONSTANTS[s / 16]), s);
+        return b + Integer.rotateLeft((a + (b & d | c & ~d) + x + ROUND_CONSTANTS[s / 16]), s);
     }
 
     private static int HH(int a, int b, int c, int d, int x, int s, int t) {
-        return b + Integer.rotateLeft((a + (b ^ c ^ d) + x + t + ROUND_CONSTANTS[s / 16]), s);
+        return b + Integer.rotateLeft((a + (b ^ c ^ d) + x + ROUND_CONSTANTS[s / 16]), s);
     }
 
     private static int II(int a, int b, int c, int d, int x, int s, int t) {
-        return b + Integer.rotateLeft((a + (c ^ (b | ~d)) + x + t + ROUND_CONSTANTS[s / 16]), s);
+        return b + Integer.rotateLeft((a + (c ^ (b | ~d)) + x + ROUND_CONSTANTS[s / 16]), s);
     }
 
     private static String bytesToHex(byte[] bytes) {
